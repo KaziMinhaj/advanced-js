@@ -48,5 +48,5 @@ const finding = array.find(function (element) {
 console.log(finding);
 
 // map and filter returns array
-// find retrurns the element basis on the condition
+// find retrurns the element basis on the condition and only the first meet element
 // filter returns an array basis on the condition
