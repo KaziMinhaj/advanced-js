@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random User</title>
+</head>
+
+<body>
+    <h1>Random User</h1>
+    <h2> Name: <span id="userName"></span></h2>
+    <img src="" id="image">
+    <script>
+        fetch("https://randomuser.me/api/")
+            .then(response => response.json())
+            .then(response => {
+                const data = response.results[0];
+                const name = `${data.name.title} ${data.name.first} ${data.name.last} `
+                const photo = data.picture.large;
+
+                document.getElementById("userName").innerText = name;
+                document.getElementById("image").src = photo;
+
+            });
+    </script>
+</body>
+
+</html>
