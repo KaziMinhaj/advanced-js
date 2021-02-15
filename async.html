@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Await</title>
+</head>
+
+<body>
+    <h1 style="background-color: cyan; width: fit-content;">Learing Async & Await</h1>
+    <ul id="my-list"></ul>
+    <script>
+        // ======= async await ===========
+        async function loadData() {
+            const response = await fetch("https://jsonplaceholder.typicode.com/users");
+            const data = await response.json();
+            return data;
+        }
+        loadData().then(data => {
+            displayData(data);
+        });
+
+        // --------------------normal fetching--------------
+
+        // function loadData() {
+        //     fetch('https://jsonplaceholder.typicode.com/users')
+        //         .then(response => response.json())
+        //         .then(json => {
+        //             displayData(json);
+        //         })
+        // }
+        function displayData(data) {
+            for (let index = 0; index < data.length; index++) {
+                const element = data[index];
+                const ul = document.getElementById("my-list");
+                const li = document.createElement("li");
+                li.innerText = element.name;
+                ul.appendChild(li);
+            }
+        }
+        // loadData();
+
+    </script>
+</body>
+
+</html>
