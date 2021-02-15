@@ -8,5 +8,17 @@ const student = {
     }
 
 }
-console.log(student.age);
-console.log(student.getFullName());
+
+// console.log(student.getFullName());
+
+const std2 = {
+    firstName: "Fahima",
+    lastName: "Shova",
+    age: "22",
+    uni: "BRACU",
+}
+
+const fullName = student.getFullName.bind(std2);
+console.log(fullName());
+
+
